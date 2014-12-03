@@ -1,0 +1,29 @@
+{
+  "name": "commons-io",
+  "version": "0.0.1",
+  "description": "common utils function of io",
+  "keywords": [
+    "file mkdir -p"
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "devDependencies": {
+    "mocha": "latest",
+    "istanbul": "latest",
+    "jshint": "latest"
+  },
+  "author": {
+    "name": "zhangya_no1@qq.com"
+  },
+  "_npmUser": {
+    "name": "zhangya_no1",
+    "email": "zhangya_no1@qq.com"
+  },
+  "maintainers": [
+    {
+      "name": "zhangya_no1",
+      "email": "zhangya_no1@qq.com"
+    }
+  ]
+}
