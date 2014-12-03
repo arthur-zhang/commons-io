@@ -16,6 +16,10 @@ describe('mkdirsSync', function() {
       fileUtils.mkdirsSync(file, 0755);
       var exists = fs.existsSync(file);
       assert(exists, 'target dir is no made');
+      fs.stat(file, function(err, stat) {
+        assert.ifError(err);
+        assert.equal(stat.mode & 0777, 0755);
+      });
     } catch (ex) {
       throw ex;
     }
@@ -37,7 +41,14 @@ describe('mkdirs async', function() {
     var z = Math.floor(Math.random() * Math.pow(16,4)).toString(16);
 
     var file = path.join(__dirname, [x,y,z].join('/'));
-    fileUtils.mkdirs(file, 0755, done);
+    fileUtils.mkdirs(file, 0755, function(err) {
+      assert.ifError(err);
+      fs.stat(file, function(err, stat) {
+        assert.ifError(err);
+        assert.equal(stat.mode & 0777, 0755);
+        done();
+      });
+    });
   });
   it('should fail', function(done) {
 
